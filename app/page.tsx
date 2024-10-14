@@ -7,6 +7,12 @@ import { Github, Linkedin, Mail, Code, Smartphone, Globe, GraduationCap, Book } 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Footer from '@/mycomponentes/footer'
+import Header from '@/mycomponentes/header'
+import About from '@/mycomponentes/about'
+import Contact from '@/mycomponentes/contact'
+import Education from '@/mycomponentes/Education'
+import Projects from '@/mycomponentes/projects'
+import Skills from '@/mycomponentes/skills'
 
 // Snake animation constants and types
 const CELL_SIZE = 10;
@@ -149,136 +155,31 @@ export default function Component() {
       </nav>
 
       {/* Header */}
-      <header id="home" className="container mx-auto px-4 py-24 md:py-32 relative z-10">
-        <div className="flex flex-col items-center md:flex-row md:justify-between">
-          <div className="mb-6 md:mb-0 transition-all duration-1000 ease-in-out transform translate-y-10 opacity-0" style={{ transform: isVisible ? 'translateY(0)' : 'translateY(2rem)', opacity: isVisible ? 1 : 0 }}>
-            <h1 className="text-4xl font-bold mb-2 text-blue-400">Ryan Costa</h1>
-            <p className="text-xl text-gray-300">Software Developer</p>
-            <div className="flex flex-wrap space-y-2 md:space-y-0 md:space-x-2 mt-4">
-              {['React', 'React Native', 'Node.js', 'TypeScript', 'Python', 'Scraping', 'Supabase', 'Firebase'].map((stack) => (
-                <span key={stack} className="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-sm transition-colors duration-200 hover:bg-gray-600 hover:text-white">
-                  {stack}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="relative w-40 h-40 transition-all duration-1000 delay-300 ease-in-out transform scale-0" style={{ transform: isVisible ? 'scale(1)' : 'scale(0)' }}>
-            <Image
-              src="/ryan01.jpg"
-              alt="Profile Picture"
-              layout="fill"
-              className="rounded-full border-4 border-blue-400 shadow-lg"
-            />
-          </div>
-        </div>
-      </header>
+    <Header/>
 
       {/* About */}
-      <section id="about" className="py-16 bg-gray-800 bg-opacity-50 relative z-10">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-blue-400">About Me</h2>
-          <Card>
-            <CardContent className="p-6">
-              <p className="text-lg text-gray-300 mb-6 leading-relaxed transition-all duration-1000 ease-in-out transform translate-y-10 opacity-0" style={{ transform: isVisible ? 'translateY(0)' : 'translateY(2rem)', opacity: isVisible ? 1 : 0 }}>
-                I'm a passionate React Native and Next.js developer with 5 years of experience building
-                cross-platform mobile apps and responsive web applications. I love creating intuitive
-                and performant user interfaces that provide great user experiences. My goal is to blend
-                creativity with technical expertise to deliver outstanding digital solutions.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+
+    <About/>
 
       {/* Skills */}
-      <section id="skills" className="py-16 relative z-10">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-blue-400">Skills</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {['React Native', 'Next.js', 'JavaScript', 'TypeScript', 'Redux', 'GraphQL', 'Node.js', 'Tailwind CSS'].map((skill, index) => (
-              <Card key={skill} className="transition-all duration-500 ease-in-out transform hover:scale-105" style={{ transitionDelay: `${index * 100}ms` }}>
-                <CardContent className="p-4 text-center">
-                  {skill}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+    <Skills/>
 
       {/* Projects */}
-      <section id="projects" className="py-16 bg-gray-800 bg-opacity-50 relative z-10">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-blue-400">Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { title: 'Mobile App', icon: Smartphone, description: 'A cross-platform mobile app built with React Native.' },
-              { title: 'Web Application', icon: Globe, description: 'A responsive web app developed using Next.js and Tailwind CSS.' },
-              { title: 'API Integration', icon: Code, description: 'Seamless integration of RESTful APIs and GraphQL.' }
-            ].map((project, index) => (
-              <Card key={project.title} className="transition-all duration-500 ease-in-out transform hover:scale-105" style={{ transitionDelay: `${index * 200}ms` }}>
-                <CardContent className="p-6">
-                  <project.icon className="w-12 h-12 text-blue-400 mb-4" />
-                  <CardTitle className="text-xl mb-2">{project.title}</CardTitle>
-                  <CardDescription className="mb-4">
-                    {project.description}
-                  </CardDescription>
-                  <Button variant="secondary">View Project</Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+
+    <Projects/>
 
       {/* Education */}
-      <section id="education" className="py-16 relative z-10">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-blue-400">Education</h2>
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex items-start mb-6">
-                <GraduationCap className="w-6 h-6 text-blue-400 mr-4" />
-                <div>
-                  <CardTitle className="text-xl mb-2">Bachelor of Science in Computer Science</CardTitle>
-                  <CardDescription>University of Technology, 2015-2019</CardDescription>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <Book className="w-6 h-6 text-blue-400 mr-4" />
-                <div>
-                  <CardTitle className="text-xl mb-2">Full Stack Web Development Bootcamp</CardTitle>
-                  <CardDescription>Tech Academy, 2020</CardDescription>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+
+
+    <Education/>
 
       {/* Contact */}
-      <section id="contact" className="py-16 bg-gray-800 bg-opacity-50 relative z-10">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-blue-400">Contact Me</h2>
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex justify-center space-x-6">
-                {[
-                  { icon: Github, href: '#', label: 'GitHub' },
-                  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-                  { icon: Mail, href: '#', label: 'Email' }
-                ].map((item, index) => (
-                  <a key={item.label} href={item.href} className="text-blue-400 hover:text-blue-300 transition-all duration-300 ease-in-out transform hover:scale-110" style={{ transitionDelay: `${index * 100}ms` }} aria-label={item.label}>
-                    <item.icon size={24} />
-                  </a>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
 
-      <Footer />
+    <Contact/>
+
+      {/* Footer */}
+
+    <Footer/>
     </main>
   )
 }
