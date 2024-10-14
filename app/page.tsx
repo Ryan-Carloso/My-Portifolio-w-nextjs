@@ -135,6 +135,7 @@ export default function Component() {
             {['Home', 'About', 'Skills', 'Projects', 'Education', 'Contact'].map((item) => (
               <li key={item}>
                 <Button
+                //button
                   variant="ghost"
                   className={`text-sm ${activeSection === item.toLowerCase() ? 'text-blue-400' : 'text-gray-400'}`}
                   onClick={() => scrollToSection(item.toLowerCase())}
